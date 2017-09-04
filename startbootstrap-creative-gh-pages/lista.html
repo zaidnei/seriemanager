@@ -1,54 +1,286 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Calendário</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <span>
-    </span>
+  <title>Series Manager</title>
 
-    <!-- jQuery (necessary for Boottrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- handlebars -->
-    <script src="js/handlebars.js"></script>
-    <script src="js/persistencia.js"></script>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+    rel='stylesheet' type='text/css'>
 
-    <script id="source" type="text/x-handlebars-template">
-        
-    </script>
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-    <script>
-      if (Persistencia.existe('series')) {
-        var source   = document.querySelector("#source").innerHTML;
-        var template = Handlebars.compile(source);
-        /*var json = Persistencia.carrega('series');
-        var serie = json.serie;//NOME SERIE
-        var temporadas = JSON.parse(json)[0].temporadas;//TODAS TEMPORADAS*/
-        var html = template({
-          series : Persistencia.carrega('series')
-        });
-        console.log(html);
-        document.querySelector('span').innerHTML = html;
-      }
-    </script>
+  <link href="css/creative.min.css" rel="stylesheet">
+  <style>
+    .list-group-item>.badge {
+      float: right;
+    }
 
+    .badge {
+      display: inline-block;
+      padding: .25em .4em;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      color: #000000;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25rem
+    }
 
-  </body>
+    .badge:empty {
+      display: none
+    }
+
+    .btn .badge {
+      position: relative;
+      top: -1px
+    }
+
+    .badge-pill {
+      padding-right: .6em;
+      padding-left: .6em;
+      border-radius: 10rem
+    }
+
+    .badge-primary {
+      color: #000000;
+      background-color: #007bff
+    }
+
+    .badge-primary[href]:focus,
+    .badge-primary[href]:hover {
+      color: #6c757d;
+      text-decoration: none;
+      background-color: #0062cc
+    }
+
+    .badge-secondary {
+      color: black;
+      background-color: #868e96
+    }
+
+    .badge-secondary[href]:focus,
+    .badge-secondary[href]:hover {
+      color: #000000;
+      text-decoration: none;
+      background-color: #6c757d
+    }
+
+    .badge-success {
+      color: #000000;
+      background-color: #28a745
+    }
+
+    .badge-success[href]:focus,
+    .badge-success[href]:hover {
+      color: #000000;
+      text-decoration: none;
+      background-color: #1e7e34
+    }
+
+    .badge-info {
+      color: #000000;
+      background-color: #17a2b8
+    }
+
+    .badge-info[href]:focus,
+    .badge-info[href]:hover {
+      color: #000000;
+      text-decoration: none;
+      background-color: #117a8b
+    }
+
+    .badge-warning {
+      color: #111;
+      background-color: #ffc107
+    }
+
+    .badge-warning[href]:focus,
+    .badge-warning[href]:hover {
+      color: #111;
+      text-decoration: none;
+      background-color: #d39e00
+    }
+
+    .badge-danger {
+      color: #000000;
+      background-color: #dc3545
+    }
+
+    .badge-danger[href]:focus,
+    .badge-danger[href]:hover {
+      color: #000000;
+      text-decoration: none;
+      background-color: #bd2130
+    }
+
+    .badge-light {
+      color: #111;
+      background-color: #f8f9fa
+    }
+
+    .badge-light[href]:focus,
+    .badge-light[href]:hover {
+      color: #111;
+      text-decoration: none;
+      background-color: #dae0e5
+    }
+
+    .badge-dark {
+      color: #000000;
+      background-color: #343a40
+    }
+
+    .badge-dark[href]:focus,
+    .badge-dark[href]:hover {
+      color: #000000;
+      text-decoration: none;
+      background-color: #1d2124
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
+    <a class="navbar-brand" href="index.html#">Inicio</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#galeria">Lista de Séries</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section style="padding: 100px 10px 0px 10px  !important;">
+    <div class="container">
+      <div class="text-center">
+        <h1>LISTA DE TEMPORADAS</h1>
+      </div>
+      <hr/>
+      <div class="text-center">
+        <h5>AVALIAÇÃO</h5>
+        <input type="number" value="0" min="0" max="5" style="margin: 0 auto !important;" class="form-control col-sm-1" id="av" name="av">
+        <hr/>
+        <div class="col-sm-6 " style="margin: 0 auto !important;">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default">
+                    <input type="radio" id="qa" name="qa" value="1" /> Quero assistir
+                </label>
+            <label class="btn btn-default">
+                    <input type="radio" id="as" name="as" value="2" /> Assistindo
+                </label>
+            <label class="btn btn-default">
+                    <input type="radio" id="ja" name="ja" value="3" /> Já assisti
+                </label>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <script>
+        function retornaSerie(nameSerie) {
+          var loc = location.search.substring(1, location.search.length);
+          var param_value = false;
+          var params = loc.split("&");
+          for (i = 0; i < params.length; i++) {
+            param_name = params[i].substring(0, params[i].indexOf('='));
+            if (param_name == nameSerie) {
+              param_value = params[i].substring(params[i].indexOf('=') + 1)
+            }
+          }
+          if (param_value) {
+            return param_value;
+          }
+          else {
+            return undefined;
+          }
+        }
+        var nomeSerie = retornaSerie("serie"),
+          json = JSON.parse(localStorage['series']),
+          myObj = {};
+        for (var i = 0; i < json.length; i++) {
+          if (json[i].serie === nomeSerie) {
+            myObj = json[i];
+            break;
+          }
+        }
+        var html = '<ul class="list-group">';
+        for (var i = 0; i < myObj.temporadas.length; i++)
+          html += '<li class="list-group-item">' + 'Temporada ' + (i + 1) + '<span class="badge">' + 'Episódios: ' + myObj.temporadas[i].qtdep + '</span><input type="number" min="0" max="' + myObj.temporadas[i].qtdep + '" class="form-control" id="ep'+i+'" name="ep" placeholder="Episódio que tais:" required></li>'
+        html += '</ul>';
+        document.write(html);
+      </script>
+    </div>
+  </section>
+  <section style="padding: 50px 10px 0px 10px  !important;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <form>
+            <button type="submit" class="btn btn-primary">
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-heading">Bom proveito</h2>
+          <hr class="primary">
+          <p>Desenvolvido por João Pedro e Zaidnei!</p>
+          <p>Desarrollado por Ruan Pietro y Raidney!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- jQuery (necessary for Boottrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- handlebars -->
+  <script src="js/handlebars.js"></script>
+  <script src="js/persistencia.js"></script>
+  <script src="js/functions.js"></script>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      json[0].avaliacao = document.querySelector('#av').value;
+      var s1,s2,s3;
+      alert(json[0].avaliacao);
+      s1 = document.querySelector('#qa');
+      s2 = document.querySelector('#as');
+      s3 = document.querySelector('#ja');
+      if(s1.checked) json[0].status = 1;
+      if(s2.checked) json[0].status = 2;
+      if(s3.checked) json[0].status = 3;
+      
+      for(var i = 0; i < json[0].temporadas.length; i++) {
+        var epi = document.querySelector('#ep'+i).value;
+        json[0].temporadas[i].episodio = epi;
+      } 
+      localStorage.series = json[0];
+      form.reset();
+      e.preventDefault();
+    });
+  </script>
+</body>
 
 </html>

@@ -1,110 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Series Manager</title>
+  <title>Series Manager</title>
 
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+    rel='stylesheet' type='text/css'>
 
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-    <link href="css/creative.min.css" rel="stylesheet">
+  <link href="css/creative.min.css" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <a class="navbar-brand" href="#page-top">Inicio</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <a class="navbar-brand" href="#page-top">Inicio</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="cadastro.html">Cadastrar Série</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#galeria">Lista de Séries</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="cadastro.html">Cadastrar Série</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#galeria">Lista de Séries</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <header class="masthead">
-      <div class="header-content">
-        <div class="header-content-inner">
-          <h1 id="homeHeading">Um site revolucionário para você nunca se perder da sua série favorita</h1>
-          <hr>
-          <p>Site totalmente grátis, sem virus, e qualquer tipo de propaganda.</p>
-          <a class="btn btn-primary btn-xl" href="#galeria">Pegue a pipoca e vamos lá!</a>
+  <header class="masthead">
+    <div class="header-content">
+      <div class="header-content-inner">
+        <h1 id="homeHeading">Um site revolucionário para você nunca se perder da sua série favorita</h1>
+        <hr>
+        <p>Site totalmente grátis, sem virus, e qualquer tipo de propaganda.</p>
+        <a class="btn btn-primary btn-xl" href="#galeria">Pegue a pipoca e vamos lá!</a>
+      </div>
+    </div>
+  </header>
+
+
+
+  <section class="p-0" id="galeria">
+    <div class="container-fluid">
+      <div class="call-to-action ">
+        <div class="container text-center">
+          <h1>ESCOLHA A SÉRIE ABAIXO </h1>
+          <i class="fa fa-play fa-3x sr-contact"></i>
         </div>
       </div>
-    </header>
+      <div class="row no-gutter">
+        <script>
+          var json = JSON.parse(localStorage['series']),
+            temps = '';
+          for (var i = 0; i < json.length; i++) {
+            temps += (
+              '<div class="col-lg-4 col-sm-6">' +
+              '<a class="portfolio-box" href="lista.html?serie=' + json[i].serie + '">' +
+              '<img class="img-fluid" src="img/portfolio/thumbnails/default.jpg" alt="">' +
+              '<div class="portfolio-box-caption">' +
+              '<div class="portfolio-box-caption-content">' +
+              '<div class="project-category text-faded">' +
+              json[i].serie +
+              '</div>' +
+              '<div class="project-name">' +
+              'Temporadas: ' + json[0].temporadas.length
+              + '</div>' +
+              '</div>' +
+              '</div>' +
+              '</a>' +
+              '</div>'
+            );
+          }
+          document.write(temps);
+        </script>
+      </div>
+    </div>
+  </section>
 
-
-    
-    <section class="p-0" id="galeria">
-      <div class="container-fluid">
-        <div class="call-to-action ">
-          <div class="container text-center">
-            <h1>ESCOLHA A SÉRIE ABAIXO </h1> 
-            <i class="fa fa-play fa-3x sr-contact"></i>
-          </div>
-        </div>
-        <div class="row no-gutter popup-gallery">
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>          
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-heading">Bom proveito</h2>
+          <hr class="primary">
+          <p>Desenvolvido por João Pedro e Zaidnei!</p>
+          <p>Desarrollado por Ruan Pietro y Raidney!</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Bom proveito</h2>
-            <hr class="primary">
-            <p>Desenvolvido de João Pedro e Zaidnei!</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/popper/popper.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
-
-  </body>
+</body>
 
 </html>

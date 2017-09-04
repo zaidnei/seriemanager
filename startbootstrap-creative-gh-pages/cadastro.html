@@ -1,127 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Series Manager</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <title>Series Manager</title>
 
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+    rel='stylesheet' type='text/css'>
 
-    <link href="css/creative.min.css" rel="stylesheet">
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-  </head>
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
-      <a class="navbar-brand" href="index.html#">Inicio</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+  <link href="css/creative.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-shrink" id="mainNav">
+    <a class="navbar-brand" href="index.html#">Inicio</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#galeria">Lista de Séries</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <section style="background-image: url("img/header.jpg");">
-        <div class="container">
-        <div class="mensagem"></div>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#galeria">Lista de Séries</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section style="background-image: url(" img/header.jpg ");">
+    <div class="container">
+      <div class="mensagem"></div>
 
-        <form id="form">
-            <div class="form-group">
-            <label for="serie">Série:</label>
-            <input type="text" class="form-control"
-                    id="serie" name="serie"
-                    placeholder="Nome da Série"
-                    required>
-            </div>
-            <div class="form-group">
-            <label for="thumbserie">Thumbnail da série:</label><br>
-            <input type="file" name="thumbserie" id="thumbserie" accept="image/png, image/jpeg, image/gif">
-            </div>
-            <div class="form-group">
-            <label for="temporada">Temporadas:</label>
-            <input type="number" min="0" class="form-control"
-                    id="temporada" name="temporada"
-                    placeholder="Quantidade Temporadas:"
-                    required> 
-            </div>
-            <div class="form-group" id="temporadas" name="temporadas" for="temporadas">
-                
-            </div>
-            <button type="submit" class="btn btn-primary">
+      <form id="form">
+        <div class="form-group">
+          <label for="serie">Série:</label>
+          <input type="text" class="form-control" id="serie" name="serie" placeholder="Nome da Série" required>
+        </div>
+        <div class="form-group">
+          <label for="temporada">Temporadas:</label>
+          <input type="number" min="0" class="form-control" id="temporada" name="temporada" placeholder="Quantidade Temporadas:" required>
+        </div>
+        <div class="form-group" id="temporadas" name="temporadas" for="temporadas">
+
+        </div>
+        <button type="submit" class="btn btn-primary">
             Salvar
             </button>
-        </form>
+      </form>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-heading">Bom proveito</h2>
+          <hr class="primary">
+          <p>Desenvolvido por João Pedro e Zaidnei!</p>
+          <p>Desarrollado por Ruan Pietro y Raidney!</p>
         </div>
-    </section>
-
-    <!-- jQuery (necessary for Boottrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- handlebars -->
-    <script src="js/handlebars.js"></script>
-    <script src="js/persistencia.js"></script>
-    <script src="js/functions.js"></script>
-
-    <script id="sucesso" type="text/x-handlebars-template">
-      <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Sucesso!</strong> {{mensagem}}
       </div>
-    </script>
+    </div>
+  </section>
+  <!-- jQuery (necessary for Boottrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- handlebars -->
+  <script src="js/handlebars.js"></script>
+  <script src="js/persistencia.js"></script>
+  <script src="js/functions.js"></script>
 
-    <script>
-      const form = document.querySelector('form');
-      form.addEventListener('submit', function (e) {
-        var array = document.querySelector('#temporadas').childNodes;
-        var obj = new Object();
-        var listaObjs = [];
-        var i  = Math.floor((document.querySelector('#temporadas').childNodes.length)/2);
-        var o = 1 , j = 2;
-        while(i > 0) {
-            obj.nome = array[o].innerText;
-            obj.qtdep = array[j].value;
-            listaObjs.unshift(obj);
-            alert(o);
-            o+=2;
-            j+=2;
-            i--;
-            obj = {};
-        }
-        Persistencia.adiciona('series', {
-          serie: form.serie.value,
-          temporadas: listaObjs,
-        });
+  <script id="sucesso" type="text/x-handlebars-template">
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Sucesso!</strong> {{mensagem}}
+    </div>
+  </script>
 
-        form.reset();
-        sucesso("A atividade foi salva corretamente.");
-
-        e.preventDefault();
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      var array = document.querySelector('#temporadas').childNodes;
+      var obj = new Object();
+      var listaObjs = [];
+      var i = Math.floor((document.querySelector('#temporadas').childNodes.length) / 2);
+      var o = 1, j = 2;
+      while (i > 0) {
+        obj.nome = array[o].innerText;
+        obj.qtdep = array[j].value;
+        obj.episodio = 0;
+        listaObjs.push(obj);
+        o += 2;
+        j += 2;
+        i--;
+        obj = {};
+      }
+      Persistencia.adiciona('series', {
+        serie: form.serie.value,
+        temporadas: listaObjs,
+        avaliacao: 0,
+        status: 0//1 2 3
       });
 
-      function sucesso(mensagem) {
-        var source   = document.querySelector("#sucesso").innerHTML;
-        var template = Handlebars.compile(source);
-        var html = template({ mensagem: mensagem });
-        document.querySelector('div.mensagem').innerHTML = html;
-      }
-    </script>
+      sucesso("Temporada salva com sucesso!");
+      form.reset();
+      e.preventDefault();
+      //localStorage.setItem('objetoTemporada', JSON.stringify(listaObjs));
+      var url = 'index.html';
+      window.location = url;
+    });
+
+    function sucesso(mensagem) {
+      var source = document.querySelector("#sucesso").innerHTML;
+      var template = Handlebars.compile(source);
+      var html = template({ mensagem: mensagem });
+      document.querySelector('div.mensagem').innerHTML = html;
+    }
+  </script>
 
 
 
 
-  </body>
+</body>
 
 
 
